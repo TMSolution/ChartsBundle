@@ -1,0 +1,3 @@
+tm_solution_charts_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: TMSolutionChartsBundle:Default:index }
