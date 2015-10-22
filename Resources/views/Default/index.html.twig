@@ -1,1 +1,43 @@
-Hello {{ name }}!
+{% extends 'CorePrototypeBundle:Default\\Base:index.html.twig' %}
+{% block content %}
+
+    <link rel="stylesheet" href="{{ asset('assets/vendor/morris.js/morris.css') }}">
+    <div class="row">
+        <div class="col-md-6">
+            <div id="chart1"></div>
+        </div>
+        <div class="col-md-6">
+            <div id="chart2"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div id="chart3"></div>
+        </div>
+        <div class="col-md-6">
+            <div id="chart4"></div>
+        </div>
+    </div>
+
+</div>
+{% endblock content %}
+
+{% block js %}
+    {{ parent() }}
+
+    <script src="{{ asset('assets/vendor/raphael/raphael-min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/mocha/mocha.js') }}"></script>
+    <script src="{{ asset('assets/vendor/morris.js/morris.min.js') }}"></script>
+    <script>
+        $(function () {
+
+         {{ chart1|raw}}
+        {{ chart2|raw}} 
+        {{ chart3|raw}}
+         {{ chart4|raw}}
+
+                });
+    </script>
+
+{% endblock js %}
+

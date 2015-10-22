@@ -1,0 +1,8 @@
+Morris.Line({
+    element: '{{config.htmlContainerId}}',
+    data: {{config.jsonData|raw}},
+    xkey: '{{config.xkey}}',
+    ykeys: [{% for ykey in config.ykeys %}'{{ykey}}'{% if not loop.last %},{% endif %}{% endfor %}],
+    labels: [{% for label in config.labels %}'{{label}}'{% if not loop.last %},{% endif %}{% endfor %}],
+    resize: true
+});

@@ -1,0 +1,10 @@
+{
+  "name": "charts-bundle",
+  "version": "0.0.1",
+  "dependencies": {
+    "bootstrap": "master",
+    "morris.js":"0.5.1"
+    
+      },
+  "private": true
+}

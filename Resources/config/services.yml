@@ -1,4 +1,5 @@
 services:
-#    tm_solution_charts.example:
-#        class: TMSolution\ChartsBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+       
+    charts.morrisjs.generate:
+        class: TMSolution\ChartsBundle\Service\ChartsMorrisJs
+        arguments: [@service_container]
