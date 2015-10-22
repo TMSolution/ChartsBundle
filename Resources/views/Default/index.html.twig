@@ -26,17 +26,21 @@
     {{ parent() }}
 
     <script src="{{ asset('assets/vendor/raphael/raphael-min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/mocha/mocha.js') }}"></script>
     <script src="{{ asset('assets/vendor/morris.js/morris.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/canvg/dist/canvg.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/downloadImage.js') }}"></script>
+    
+
+    
     <script>
         $(function () {
 
-         {{ chart1|raw}}
+        {{ chart1|raw}}
         {{ chart2|raw}} 
         {{ chart3|raw}}
-         {{ chart4|raw}}
+        {{ chart4|raw}}
 
-                });
+            });
     </script>
 
 {% endblock js %}

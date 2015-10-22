@@ -94,9 +94,7 @@ class DefaultController extends Controller
 
         $chart->setOptions($options);
         $chart3Js = $chart->render();
-        
-        
-        
+
         
         //DONUT
         $data1 = new \stdClass();

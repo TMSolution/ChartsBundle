@@ -6,3 +6,7 @@ Morris.Line({
     labels: [{% for label in config.labels %}'{{label}}'{% if not loop.last %},{% endif %}{% endfor %}],
     resize: true
 });
+$('#{{config.htmlContainerId}}').append('<div><a class="not-lazy-loaded pull-right" style="cursor:pointer" target="_blank" id="{{config.htmlContainerId}}-download">{{'download'|trans}}</a></div>');
+document.getElementById('{{config.htmlContainerId}}-download').addEventListener('click', function() {
+    downloadImage(this,'{{config.htmlContainerId}}', 'line.png');
+}, false);
