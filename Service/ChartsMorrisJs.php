@@ -48,6 +48,7 @@ class ChartsMorrisJs extends Charts
     {
         if ($this->checkConfig()) {
 
+           
             $this->convertData();
             $templating = $this->container->get('templating');
             $renderedChart = $templating->render("TMSolutionChartsBundle:Templates:morrisjs." . $this->options["type"] . ".template.twig", [

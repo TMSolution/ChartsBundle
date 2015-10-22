@@ -22,6 +22,7 @@ abstract class Charts
     public function __construct($container)
     {
         $this->container = $container;
+        //$model = $this->getContainer()->get("model_factory")->getModel($entityName);
         $this->setOptions([]);
     }
 
@@ -32,13 +33,13 @@ abstract class Charts
         $this->options = $resolver->resolve($options);
     }
 
+   
     protected function convertData()
     {
         if (array_key_exists('data', $this->options)) {
             $this->options['jsonData'] = json_encode($this->options['data']);
-        }
-        else{
-            $this->options['jsonData']='[]';
+        } else {
+            $this->options['jsonData'] = '[]';
         }
     }
 

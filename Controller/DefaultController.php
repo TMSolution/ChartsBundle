@@ -46,6 +46,8 @@ class DefaultController extends Controller
         ];
 
         $chart->setOptions($options);
+        
+        
         $chart1Js = $chart->render();
         
         

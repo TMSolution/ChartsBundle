@@ -28,7 +28,12 @@
     <script src="{{ asset('assets/vendor/raphael/raphael-min.js') }}"></script>
     <script src="{{ asset('assets/vendor/morris.js/morris.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/canvg/dist/canvg.bundle.min.js') }}"></script>
-    <script src="{{ asset('js/downloadImage.js') }}"></script>
+    
+    {% javascripts '@TMSolutionChartsBundle/Resources/public/js/*' %}
+      <script type="text/javascript" src="{{ asset_url }}"></script>
+   {% endjavascripts %}
+
+    
     
 
     

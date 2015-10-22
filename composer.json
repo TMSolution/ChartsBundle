@@ -1,0 +1,28 @@
+{
+    "name": "tmsolution/charts-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony2 bundle for charts",
+    "keywords": ["charts", "bundle"],
+    "homepage": "https://github.com/TMSolution/ChartsBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mariusz Piela",
+            "email": "mariusz.piela@tmsolution.pl"
+        },
+        {
+            "name": "Jacek Lozinski",
+            "email": "jacek.lozinski@tmsolution.pl"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/framework-bundle": "2.*"
+   },
+    "autoload": {
+        "psr-4": {
+            "TMSolution\\ChartsBundle\\": ""
+        }
+    },
+    "minimum-stability": "dev"
+}
