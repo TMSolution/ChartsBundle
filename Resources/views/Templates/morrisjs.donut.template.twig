@@ -1,32 +1,34 @@
-var chart{{config.htmlContainerId}} = Morris.Donut({
-    element: '{{config.htmlContainerId}}',
-    data: {{config.jsonData|raw}},
+var chart{{options.htmlContainerId}} = Morris.Donut({
+    element: '{{options.htmlContainerId}}',
+    data: {{options.jsonData|raw}},
     resize: true,
     formatter: function (y, data) { return '$' + y }
 });
 
-{% if config.download %}
-$('#{{config.htmlContainerId}}').append('<div><a style="cursor:pointer" class="not-lazy-loaded pull-right" target="_blank" id="{{config.htmlContainerId}}-download">{{'download'|trans}}</a></div>');
-document.getElementById('{{config.htmlContainerId}}-download').addEventListener('click', function() {
-    downloadImage(this,'{{config.htmlContainerId}}', {%if config.downloadFileName %}'{{config.downloadFileName}}.png'{% else %}'export.png'{% endif %});
+{% if options.download %}
+$('#{{options.htmlContainerId}}').append('<div><a style="cursor:pointer" class="not-lazy-loaded pull-right" target="_blank" id="{{options.htmlContainerId}}-download">{{'download'|trans}}</a></div>');
+document.getElementById('{{options.htmlContainerId}}-download').addEventListener('click', function() {
+    downloadImage(this,'{{options.htmlContainerId}}', {%if options.downloadFileName %}'{{options.downloadFileName}}.png'{% else %}'export.png'{% endif %});
 }, false);
 {% endif %}
 
 //Update example:
-//chart{{config.htmlContainerId}}.setData([{'label':'aaa','value':'234'},{'label':'aaa','value':'234'}])
+//chart{{options.htmlContainerId}}.setData([{'label':'aaa','value':'234'},{'label':'aaa','value':'234'}])
 
 //event example
-//chart{{config.htmlContainerId}}.on('click', function(i, row){console.log(i, row);});
+//chart{{options.htmlContainerId}}.on('click', function(i, row){console.log(i, row);});
 
-
-update=function(){
+/*
+update{{options.htmlContainerId}}=function(){
 
 var v1=Math.floor((Math.random() * 10) + 1);
 var v2=Math.floor((Math.random() * 10) + 1);
-    chart{{config.htmlContainerId}}.setData([{'label':'aaa','value':v1},{'label':'aaa','value':v2}])
+var v3=Math.floor((Math.random() * 10) + 1);
+var v4=Math.floor((Math.random() * 10) + 1);
+var v5=Math.floor((Math.random() * 10) + 1);
+
+    chart{{options.htmlContainerId}}.setData([{'label':'a1','value':v1},{'label':'a2','value':v2},{'label':'a3','value':v3},{'label':'a4','value':v4},{'label':'a5','value':v5}])
 }
 
-
-
-
-setInterval(update,3000)
+setInterval(update{{options.htmlContainerId}},3000)
+*/

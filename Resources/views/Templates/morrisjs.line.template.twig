@@ -1,16 +1,16 @@
 Morris.Line({
-    element: '{{config.htmlContainerId}}',
-    data: {{config.jsonData|raw}},
-    xkey: '{{config.xkey}}',
-    ykeys: [{% for ykey in config.ykeys %}'{{ykey}}'{% if not loop.last %},{% endif %}{% endfor %}],
-    labels: [{% for label in config.labels %}'{{label}}'{% if not loop.last %},{% endif %}{% endfor %}],
+    element: '{{options.htmlContainerId}}',
+    data: {{options.jsonData|raw}},
+    xkey: '{{options.xkey}}',
+    ykeys: [{% for ykey in options.ykeys %}'{{ykey}}'{% if not loop.last %},{% endif %}{% endfor %}],
+    labels: [{% for label in options.labels %}'{{label}}'{% if not loop.last %},{% endif %}{% endfor %}],
     resize: true,
     hideHover:'auto'
 });
 
-{% if config.download %}
-$('#{{config.htmlContainerId}}').append('<div><a class="not-lazy-loaded pull-right" style="cursor:pointer" target="_blank" id="{{config.htmlContainerId}}-download">{{'download'|trans}}</a></div>');
-document.getElementById('{{config.htmlContainerId}}-download').addEventListener('click', function() {
-    downloadImage(this,'{{config.htmlContainerId}}', {%if config.downloadFileName %}'{{config.downloadFileName}}.png'{% else %}'export.png'{% endif %});
+{% if options.download %}
+$('#{{options.htmlContainerId}}').append('<div><a class="not-lazy-loaded pull-right" style="cursor:pointer" target="_blank" id="{{options.htmlContainerId}}-download">{{'download'|trans}}</a></div>');
+document.getElementById('{{options.htmlContainerId}}-download').addEventListener('click', function() {
+    downloadImage(this,'{{options.htmlContainerId}}', {%if options.downloadFileName %}'{{options.downloadFileName}}.png'{% else %}'export.png'{% endif %});
 }, false);
 {% endif %}
