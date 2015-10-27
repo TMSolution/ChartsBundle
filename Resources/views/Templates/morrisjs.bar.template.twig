@@ -1,14 +1,24 @@
-Morris.Bar({
-element: '{{config.htmlContainerId}}',
-data: {{config.jsonData|raw}},
-xkey: '{{config.xkey}}',
-ykeys: [{% for ykey in config.ykeys %}'{{ykey}}'{% if not loop.last %},{% endif %}{% endfor %}],
-labels: [{% for label in config.labels %}'{{label}}'{% if not loop.last %},{% endif %}{% endfor %}],
-resize: true
+var chart{{config.htmlContainerId}} =Morris.Bar({
+    element: '{{config.htmlContainerId}}',
+    data: {{config.jsonData|raw}},
+    xkey: '{{config.xkey}}',
+    ykeys: [{% for ykey in config.ykeys %}'{{ykey}}'{% if not loop.last %},{% endif %}{% endfor %}],
+    labels: [{% for label in config.labels %}'{{label}}'{% if not loop.last %},{% endif %}{% endfor %}],
+    resize: true,
+    grid:true,
+    hideHover:'auto'
 });
 
+{% if config.download %}
 $('#{{config.htmlContainerId}}').append('<div><a style="cursor:pointer" class="not-lazy-loaded pull-right" target="_blank" id="{{config.htmlContainerId}}-download">{{'download'|trans}}</a></div>');
-document.getElementById('{{config.htmlContainerId}}-download').addEventListener('click', function() {
-    downloadImage(this,'{{config.htmlContainerId}}', 'bar.png');
+    document.getElementById('{{config.htmlContainerId}}-download').addEventListener('click', function() {
+    downloadImage(this,'{{config.htmlContainerId}}', {%if config.downloadFileName %}'{{config.downloadFileName}}.png'{% else %}'export.png'{% endif %});
 }, false);
+{% endif %}
 
+
+//Update example:
+chart{{config.htmlContainerId}}.setData([{"label":"ALA","value1":11,"value2":2},{"label":"MA","value1":2,"value2":111},{"label":"KOTA","value1":75,"value2":65},{"label":"I PSA","value1":50,"value2":40}])
+
+//event example
+//chart{{config.htmlContainerId}}.on('click', function(i, row){console.log(i, row);});

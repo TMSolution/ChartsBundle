@@ -31,10 +31,6 @@ class DefaultController extends Controller
         $data3->label = 'I PSA';
         $data3->value1 = 50;
         $data3->value2 = 40;
-        
-  
-        
-
 
         $options = [
             'htmlContainerId' => 'chart1',
@@ -42,7 +38,9 @@ class DefaultController extends Controller
             'labels' => ['Zbiór Zero','Zbiór Pierwszy', 'Zbiór Drugi'],
             'data' => [$data0,$data1,$data2,$data3],
             'xkey' => 'label',
-            'ykeys' => ['value1','value2']
+            'ykeys' => ['value1','value2'],
+            'download' => true,
+            'downloadFileName' => 'AlaMaKota1'
         ];
 
         $chart->setOptions($options);
@@ -78,7 +76,9 @@ class DefaultController extends Controller
             'labels' => ['Zbiór Zero','Zbiór Pierwszy', 'Zbiór Drugi'],
             'data' => [$data0,$data1,$data2,$data3],
             'xkey' => 'label',
-            'ykeys' => ['value1','value2']
+            'ykeys' => ['value1','value2'],
+            'download' => true,
+            'downloadFileName' => 'AlaMaKota2'
         ];
 
         $chart->setOptions($options);
@@ -91,7 +91,9 @@ class DefaultController extends Controller
             'labels' => ['Zbiór Zero','Zbiór Pierwszy', 'Zbiór Drugi'],
             'data' => [$data0,$data1,$data2,$data3],
             'xkey' => 'label',
-            'ykeys' => ['value1','value2']
+            'ykeys' => ['value1','value2'],
+            'download' => true,
+            'downloadFileName' => 'AlaMaKota3'
         ];
 
         $chart->setOptions($options);
@@ -114,7 +116,9 @@ class DefaultController extends Controller
         $options = [
             'htmlContainerId' => 'chart4',
             'type' => 'donut',
-            'data' => [$data1,$data2,$data3]
+            'data' => [$data1,$data2,$data3],
+            'download' => true,
+            'downloadFileName' => 'To jest nazwa pliku'
         ];
 
         $chart->setOptions($options);

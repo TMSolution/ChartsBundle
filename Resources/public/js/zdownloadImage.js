@@ -9,11 +9,13 @@ function doCanvas(htmlContainerId) {
     var canvasContainer = document.getElementById(htmlContainerId + '-canvas');
     canvasContainer.width = svgContainer.width();
     canvasContainer.height = svgContainer.height();
+    
+
     if (typeof (FlashCanvas) != 'undefined') {
         canvasContainer.getContext = document.getElementById('canvas').getContext;
     }
     canvg(canvasContainer, svgContent);
-    return canvasContainer.toDataURL('image/png');
+    return canvasContainer.toDataURL('image/jpeg');
 }
 
 function downloadImage(link, htmlContainerId, filename) {

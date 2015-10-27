@@ -9,14 +9,7 @@ abstract class Charts
 
     protected $chartTypes = [];
     protected $options = [];
-    protected $defaultOptions = [
-        'htmlContainerId' => 'chart',
-        'type' => 'bar',
-        'labels' => [],
-        'data' => [],
-        'xkey' => null,
-        'ykeys' => []
-    ];
+    protected $defaultOptions = ['htmlContainerId' => 'chart','type' => 'bar'];
     protected $container = null;
 
     public function __construct($container)
@@ -33,7 +26,6 @@ abstract class Charts
         $this->options = $resolver->resolve($options);
     }
 
-   
     protected function convertData()
     {
         if (array_key_exists('data', $this->options)) {

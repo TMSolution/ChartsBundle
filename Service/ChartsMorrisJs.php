@@ -8,6 +8,17 @@ class ChartsMorrisJs extends Charts
 {
 
     protected $chartTypes = ['bar', 'line', 'area', 'donut'];
+    protected $defaultOptions = [
+        'htmlContainerId' => 'chart',
+        'type' => 'bar',
+        'labels' => [],
+        'data' => [],
+        'xkey' => null,
+        'ykeys' => [],
+        'download' => false,
+        'downloadFileName' => 'chart'
+    ];
+    
 
     protected function checkConfig()
     {
