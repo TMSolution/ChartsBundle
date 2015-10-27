@@ -1,5 +1,17 @@
 services:
        
-    charts.morrisjs.generate:
-        class: TMSolution\ChartsBundle\Service\ChartsMorrisJs
+    charts.morrisjs.bar.generate:
+        class: TMSolution\ChartsBundle\Service\ChartsMorrisJsBar
+        arguments: [@service_container]
+        
+    charts.morrisjs.line.generate:
+        class: TMSolution\ChartsBundle\Service\ChartsMorrisJsLine
+        arguments: [@service_container]
+        
+    charts.morrisjs.area.generate:
+        class: TMSolution\ChartsBundle\Service\ChartsMorrisJsArea
+        arguments: [@service_container]
+        
+    charts.morrisjs.donut.generate:
+        class: TMSolution\ChartsBundle\Service\ChartsMorrisJsDonut
         arguments: [@service_container]
