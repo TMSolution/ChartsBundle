@@ -15,7 +15,7 @@ function doCanvas(htmlContainerId) {
         canvasContainer.getContext = document.getElementById('canvas').getContext;
     }
     canvg(canvasContainer, svgContent);
-    return canvasContainer.toDataURL('image/jpeg');
+    return canvasContainer.toDataURL('image/png');
 }
 
 function downloadImage(link, htmlContainerId, filename) {
