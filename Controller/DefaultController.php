@@ -56,7 +56,7 @@ class DefaultController extends Controller
         $data0 = new \stdClass();
         $data0->label = '1';
         $data0->value1 = 40;
-        $data0->value2 = 30;
+        $data0->value2 = 3;
 
         $data1 = new \stdClass();
         $data1->label = '100';
@@ -66,7 +66,7 @@ class DefaultController extends Controller
         $data2 = new \stdClass();
         $data2->label = '200';
         $data2->value1 = 75;
-        $data2->value2 = 65;
+        $data2->value2 = 5;
 
         $data3 = new \stdClass();
         $data3->label = '300';
@@ -94,6 +94,7 @@ class DefaultController extends Controller
             'data' => [$data0, $data1, $data2, $data3],
             'xkey' => 'label',
             'ykeys' => ['value1', 'value2'],
+            'lineColors' => ['#F1DD30','#E4E4E4'],
             'download' => 0,
             'downloadFileName' => 'AlaMaKota3'
         ];

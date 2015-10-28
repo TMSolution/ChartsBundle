@@ -14,7 +14,8 @@ class ChartsMorrisJsArea extends ChartsMorrisJs
         'xkey' => null,
         'ykeys' => [],
         'download' => false,
-        'fillOpacity' => '0.5',
+        'fillOpacity' => '1.0',
+        'lineColors' => [],
         'downloadFileName' => 'chart'
     ];
 

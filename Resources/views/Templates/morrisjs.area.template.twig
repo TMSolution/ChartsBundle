@@ -6,8 +6,15 @@ Morris.Area({
     labels: [{% for label in options.labels %}'{{label}}'{% if not loop.last %},{% endif %}{% endfor %}],
     resize: true,
     behaveLikeLine:true,
+    goalStrokeWidth: '0px',
+    lineWidth: 0,
+    pointSize: 0,
+    grid: false,
+    axis: false,
     hideHover:'auto'
     {% if options.fillOpacity %},fillOpacity:{{options.fillOpacity}}{% endif %}
+    {% if options.lineColors is not empty %},lineColors: [{% for lineColor in options.lineColors %}'{{lineColor}}'{% if not loop.last %},{% endif %}{% endfor %}]{% endif %}
+    
     
     
 });
