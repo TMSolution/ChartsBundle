@@ -13,7 +13,8 @@ class ChartsMorrisJsDonut extends ChartsMorrisJs
         'formatter' => null,
         'colors' => [],
         'download' => false,
-        'downloadFileName' => 'chart'
+        'downloadFileName' => 'chart',
+        'isMasterRequest'=>true
     ];
 
     protected function checkConfig()

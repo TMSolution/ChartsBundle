@@ -1,0 +1,44 @@
+<div class="dash-widget-item {{options.backgroundColorClass}}" id="site-visits">
+    <div class="dash-widget-header">
+        <div class="p-20">
+            <div id="{{options.htmlContainerId}}" class="chart spark-chart-panel-block"></div>
+        </div>
+
+        <div class="dash-widget-title">{{options.title}}</div>
+
+    </div>
+
+    <div class="p-20">
+
+        {% for row in options.listData %}
+            <div>
+                <small>{{row.title}}</small>
+                <h3 class="m-0 f-400">{{row.value}}</h3>
+            </div>
+        {% endfor %}
+    </div>
+</div> 
+
+<script>
+
+    var {{options.htmlContainerId}}Fn = function(){
+    if ($('#{{options.htmlContainerId}}')[0]) {
+
+    $('#{{options.htmlContainerId}}').sparkline({{options.data|raw}}, {
+    type: 'pie',
+            width: 95,
+            height: 95,
+            sliceColors:{{options.sliceColors|raw}},
+            offset: 0,
+            borderWidth: 0
+    });
+    }
+    }
+    if (collector) {
+    collector.addFunction({{options.htmlContainerId}}Fn);
+    }
+
+
+
+
+</script>

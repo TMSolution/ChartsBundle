@@ -1,0 +1,29 @@
+<div class="mini-charts-item {{options.backgroundColorClass}}">
+    <div class="clearfix">
+        <div id="{{options.htmlContainerId}}" class="chart spark-chart-block"></div>
+        <div class="count">
+            <small>{{options.title}}</small>
+            <h2>{{options.counter}}</h2>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    var {{options.htmlContainerId}}Fn = function(){
+        if ($('#{{options.htmlContainerId}}')[0]) {            
+            $('#{{options.htmlContainerId}}').sparkline( {{options.data|raw}}, {
+            type: 'bar',
+            height: '45px',
+            barWidth: 3,
+            barColor: '{{options.barColor}}',
+            barSpacing: 2
+            });
+            
+        }
+    }
+    if (collector) {
+    collector.addFunction({{options.htmlContainerId}}Fn);
+    }
+</script>

@@ -1,53 +1,60 @@
-{% extends 'CorePrototypeBundle:Default\\Base:index.html.twig' %}
+{% extends "Default/Base/index.html.twig"%}
 {% block content %}
 
-    <link rel="stylesheet" href="{{ asset('assets/vendor/morris.js/morris.css') }}">
+   
+    
+    
     <div class="row">
         <div class="col-md-6">
-            <div id="chart1"></div>
+            {% if chart1 is defined %}{{ chart1|raw}}{% endif %}
         </div>
         <div class="col-md-6">
-            <div id="chart2"></div>
+            {% if chart2 is defined %}{{ chart2|raw}}{% endif %}
         </div>
     </div>
     <div class="row">
         <div class="col-md-6">
-            <div id="chart3"></div>
+            {% if chart3 is defined %}{{ chart3|raw}}{% endif %}
         </div>
         <div class="col-md-6">
-            <div id="chart4"></div>
+            {% if chart4 is defined %} {{ chart4|raw}}{% endif %}
         </div>
     </div>
+        
+   <!-- SPARKLINE -->   
+   <div class="row">
+        <div class="col-md-4">
+            {{ sparkLine1|raw}}
+        </div>
+        <div class="col-md-4">
+            {{ sparkBar2|raw}}
+        </div>
+        <div class="col-md-4">
+            {{ sparkPie3|raw}}
+        </div>
+       
+    </div> 
+        
+   <div class="row">
+        <div class="col-md-4">
+            {{ sparkLine11|raw}}
+        </div>
+        <div class="col-md-4">
+            {{ sparkBar22|raw}}
+        </div>
+        <div class="col-md-4">
+            {{ sparkPie33|raw}}
+        </div>
+       
+    </div>      
+    
+    
 
 </div>
 {% endblock content %}
 
 {% block js %}
     {{ parent() }}
-
-   
-    <script src="{{ asset('assets/vendor/raphael/raphael-min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/morris.js/morris.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/canvg/dist/canvg.bundle.min.js') }}"></script>
-    
-    {% javascripts '@TMSolutionChartsBundle/Resources/public/js/*.js' %}
-      <script type="text/javascript" src="{{ asset_url }}"></script>
-   {% endjavascripts %}
-
-    
-    
-
-    
-    <script>
-        $(function () {
-
-        {{ chart1|raw}}
-        {{ chart2|raw}} 
-        {{ chart3|raw}}
-        {{ chart4|raw}}
-
-            });
-    </script>
 
 {% endblock js %}
 

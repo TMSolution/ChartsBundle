@@ -16,7 +16,8 @@ class ChartsMorrisJsArea extends ChartsMorrisJs
         'download' => false,
         'fillOpacity' => '1.0',
         'lineColors' => [],
-        'downloadFileName' => 'chart'
+        'downloadFileName' => 'chart',
+        'isMasterRequest'=>true
     ];
 
     protected function checkConfig()

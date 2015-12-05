@@ -15,7 +15,8 @@ class ChartsMorrisJsLine extends ChartsMorrisJs
         'xkey' => null,
         'ykeys' => [],
         'download' => false,
-        'downloadFileName' => 'chart'
+        'downloadFileName' => 'chart',
+        'isMasterRequest'=>true
     ];
     
 
