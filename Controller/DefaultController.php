@@ -136,7 +136,7 @@ class DefaultController extends Controller
             'type' => "mini",
             'htmlContainerId' => 'spark1',
             'title' => 'Spark 1',
-            'counter' => '28',
+            'value' => '28',
             'data' => [4, 66, 8, 33, 1]
         ];
 
@@ -151,7 +151,7 @@ class DefaultController extends Controller
             'type' => "mini",
             'htmlContainerId' => 'spark2',
             'title' => 'Spark 2',
-            'counter' => '12.09',
+            'value' => '12.09',
             'data' => [1, 2, 3]
         ];
 
@@ -165,7 +165,7 @@ class DefaultController extends Controller
             'type' => "mini",
             'htmlContainerId' => 'spark3',
             'title' => 'Spark 3',
-            'counter' => '987',
+            'value' => '987',
             'data' => [9, 8, 6, 3, 1, 9]
         ];
 
@@ -180,11 +180,11 @@ class DefaultController extends Controller
         $options11 = [
             'type' => "panel",
             'htmlContainerId' => 'spark11',
-             'backgroundColorClass' => 'bgm-cyan', 
+            'backgroundColorClass' => 'bgm-cyan',
             'title' => 'Spark 11',
-            'counter' => '28',
+            'value' => '28',
             'data' => [4, 66, 8, 33, 1],
-            'listData' => [['title'=>'Tytuł 1','value'=>'12345,67'],['title'=>'Tytuł 2','value'=>'12345,67'],['title'=>'Tytuł 3','value'=>'12345,67']]
+            'listData' => [['title' => 'Tytuł 1', 'value' => '12345,67'], ['title' => 'Tytuł 2', 'value' => '12345,67'], ['title' => 'Tytuł 3', 'value' => '12345,67']]
         ];
 
         $spark11->setOptions($options11);
@@ -197,11 +197,11 @@ class DefaultController extends Controller
         $options22 = [
             'type' => "panel",
             'htmlContainerId' => 'spark22',
-             'backgroundColorClass' => 'bgm-green', 
+            'backgroundColorClass' => 'bgm-green',
             'title' => 'Spark 22',
-            'counter' => '12.09',
-            'data' => [5,10,5,5],
-            'listData' => [['title'=>'Tytuł 1','value'=>'12345,67'],['title'=>'Tytuł 3','value'=>'12345,67']]
+            'value' => '12.09',
+            'data' => [5, 10, 5, 5],
+            'listData' => [['title' => 'Tytuł 1', 'value' => '12345,67'], ['title' => 'Tytuł 3', 'value' => '12345,67']]
         ];
 
         $spark22->setOptions($options22);
@@ -213,16 +213,84 @@ class DefaultController extends Controller
         $options33 = [
             'type' => "panel",
             'htmlContainerId' => 'spark33',
-             'backgroundColorClass' => 'bgm-orange', 
+            'backgroundColorClass' => 'bgm-orange',
             'title' => 'Spark 33',
-            'counter' => '987',
+            'value' => '987',
             'data' => [9, 8, 6, 3, 1, 9],
-            'listData' => [['title'=>'Tytuł 3','value'=>'12345,67']]
+            'listData' => [['title' => 'Tytuł 3', 'value' => '12345,67']]
         ];
 
         $spark33->setOptions($options33);
         $sparkPie33 = $spark33->render();
 
+        //////easy pie
+        $easy1 = $this->get('charts.easy.pie.generate');
+
+        $optionsEasy1 = [
+            'type' => "mini",
+            'htmlContainerId' => 'easyPie1',
+            'backgroundColorClass' => 'bgm-orange',
+            'title' => 'Easy Pie 1',
+            'value' => '87',
+            'trackColor' => 'rgba(255,255,255,0.2)',
+            'scaleColor' => 'rgba(255,255,255,0.5)',
+            'barColor' => 'rgba(255,255,255,0.7)',
+            'lineWidth' => 7,
+            'lineCap' => 'butt'
+        ];
+
+        $easy1->setOptions($optionsEasy1);
+        $easyPie1 = $easy1->render();
+
+        //////easy pie
+        $easy2 = $this->get('charts.easy.pie.generate');
+
+        $optionsEasy2 = [
+            'type' => "panel",
+            'htmlContainerId' => 'easyPie2',
+            'backgroundColorClass' => 'bgm-orange',
+            'title' => 'Easy Pie 2',
+            'value' => '12',
+            'listData' => [['title' => 'Tytuł 3', 'value' => '12345,67']],
+            'trackColor' => 'rgba(255,255,255,0.2)',
+            'scaleColor' => 'rgba(255,255,255,0.5)',
+            'barColor' => 'rgba(255,255,255,0.7)',
+            'lineWidth' => 7,
+            'lineCap' => 'butt'
+        ];
+
+        $easy2->setOptions($optionsEasy2);
+        $easyPie2 = $easy2->render();
+
+        $dataArr = [];
+        for ($i = 1; $i < 15; $i++) {
+            $data = new \stdClass();
+            $data->label = "$i";
+            $data->value1 = rand(1,10);
+            $data->value2 = rand(1,10);
+            $dataArr[] = $data;
+        }
+
+        ////////morrisjs area
+
+
+       
+
+
+        $chartMjs = $this->get('charts.morrisjs.area.generate');
+        $options = [
+            'htmlContainerId' => 'chart3',
+            'data' => $dataArr,
+            'xkey' => 'label',
+            'ykeys' => ['value1', 'value2'],
+            'labels' => ['Zbiór Zero', 'Zbiór Pierwszy'],
+            'lineColors' => ['#E4E4E4','#F1DD30'],
+            'download' => 1,
+            'downloadFileName' => 'AlaMaKota3'
+        ];
+
+        $chartMjs->setOptions($options);
+        $chartMjsArea = $chartMjs->render();
 
 
 
@@ -236,7 +304,10 @@ class DefaultController extends Controller
                     'sparkPie3' => $sparkPie3,
                     'sparkLine11' => $sparkLine11,
                     'sparkBar22' => $sparkBar22,
-                    'sparkPie33' => $sparkPie33
+                    'sparkPie33' => $sparkPie33,
+                    'easyPie1' => $easyPie1,
+                    'easyPie2' => $easyPie2,
+                    'chartMjsArea' => $chartMjsArea
         ]);
     }
 
