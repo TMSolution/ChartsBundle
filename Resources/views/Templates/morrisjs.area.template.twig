@@ -1,4 +1,4 @@
-<div id="{{options.htmlContainerId}}"></div>
+<div id="{{options.htmlContainerId}}" class="bgm-white"></div>
 
 <script>
 
@@ -12,7 +12,11 @@
                 xkey: '{{options.xkey}}',
                 ykeys: [{% for ykey in options.ykeys %}'{{ykey}}'{% if not loop.last %},{% endif %}{% endfor %} ],
                 labels: [{% for label in options.labels %}'{{label}}'{% if not loop.last %},{% endif %}{% endfor %} ],
+                xLabels:'text',
                 resize: true,
+                {% if options.xLabelFormatFn is defined %}xLabelFormat:{{options.xLabelFormatFn|raw}},{% endif %}
+                {% if options.yLabelFormatFn is defined %}yLabelFormat:{{options.yLabelFormatFn|raw}},{% endif %}
+                parseTime: false,
                 behaveLikeLine:true,
                 goalStrokeWidth: '0px',
                 lineWidth: 0,
