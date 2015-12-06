@@ -4,7 +4,7 @@ namespace TMSolution\ChartsBundle\Service;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class Sparkline
+class Chart
 {
 
     protected $options = [];
@@ -16,25 +16,28 @@ class Sparkline
         $this->container = $container;
         $this->setOptions([]);
     }
-    
-     public function setOptions(array $options = [])
+
+    public function setOptions(array $options = [])
     {
         $resolver = new OptionsResolver();
         $resolver->setDefaults($this->defaultOptions);
         $this->options = $resolver->resolve($options);
     }
-    
-    protected function convertData($param)
+
+    protected function convertData($param = null)
     {
-        if (array_key_exists($param, $this->options)) {
-            $this->options[$param] = json_encode($this->options[$param]);
+        if (!$param) {
+            $param = 'data';
+            $jsonParam = 'jsonData';
         } else {
-            $this->options[$param] = '[]';
+            $jsonParam = $param;
+        }
+
+        if (array_key_exists($param, $this->options)) {
+            $this->options[$jsonParam] = json_encode($this->options[$param]);
+        } else {
+            $this->options[$jsonParam] = '[]';
         }
     }
-
-    
-
-    
 
 }

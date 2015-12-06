@@ -4,7 +4,7 @@ namespace TMSolution\ChartsBundle\Service;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class SparklineLine extends Chart
+class EasyPie extends Chart
 {
     /*  backgroundColorClass:   Background color classes
       bgm-red bgm-pink bgm-purple bgm-deeppurple bgm-indigo bgm-blue
@@ -15,34 +15,30 @@ class SparklineLine extends Chart
       type:                   mini or panel
 
       listData                for type "panel"
-      example [['title'=>'Tytuł 1','value'=>'12345,67'],['title'=>'Tytuł 2','value'=>'12345,67'],['title'=>'Tytuł 3','value'=>'12345,67']]
+                              example [['title'=>'Tytuł 1','value'=>'12345,67'],['title'=>'Tytuł 2','value'=>'12345,67'],['title'=>'Tytuł 3','value'=>'12345,67']]
      */
-
     protected $defaultOptions = [
         'type' => 'mini',
         'htmlContainerId' => '',
-        'title' => '',
+        'title' => 'EasyPie',
         'value' => '0',
-        'backgroundColorClass' => 'bgm-indigo',
-        'lineColor' => '#fff',
-        'fillColor' => 'rgba(0,0,0,0)',
-        'lineWidth' => 1.25,
-        'maxSpotColor' => 'rgba(255,255,255,0.4)',
-        'minSpotColor' => 'rgba(255,255,255,0.4)',
-        'spotColor' => 'rgba(255,255,255,0.4)',
-        'spotRadius' => 3,
-        'highlightSpotColor' => '#fff',
-        'highlightLineColor' => 'rgba(255,255,255,0.4)',
-        'data' => [],
+        'backgroundColorClass' => 'bgm-lime',
+        'trackColor'=> 'rgba(255,255,255,0.2)',
+        'scaleColor'=> 'rgba(255,255,255,0.5)',
+        'barColor'=> 'rgba(255,255,255,0.7)',
+        'lineWidth'=> 7,
+        'lineCap'=> 'butt',
         'listData' => []
     ];
+    
+    
 
     public function render()
     {
 
-        $this->convertData('data');
+       // $this->convertData('data');
         $templating = $this->container->get('templating');
-        $renderedChart = $templating->render("TMSolutionChartsBundle:Templates:sparkline.line." . $this->options['type'] . ".template.twig", [
+        $renderedChart = $templating->render("TMSolutionChartsBundle:Templates:easy.pie." . $this->options['type'] . ".template.twig", [
             "options" => $this->options
         ]);
 

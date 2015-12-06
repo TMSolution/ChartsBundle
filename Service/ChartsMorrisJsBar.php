@@ -4,7 +4,7 @@ namespace TMSolution\ChartsBundle\Service;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ChartsMorrisJsBar extends ChartsMorrisJs
+class ChartsMorrisJsBar extends Chart
 {
 
     protected $defaultOptions = [
@@ -19,7 +19,7 @@ class ChartsMorrisJsBar extends ChartsMorrisJs
         'barColors' => [],
         'download' => 0,
         'downloadFileName' => 'chart',
-        'isMasterRequest'=>true
+        'isMasterRequest' => true
     ];
 
     /*
@@ -34,21 +34,15 @@ class ChartsMorrisJsBar extends ChartsMorrisJs
 
      *      */
 
-    protected function checkConfig()
-    {
-        return true;
-    }
-
     public function render()
     {
-        if ($this->checkConfig()) {
 
-            $this->convertData();
-            $templating = $this->container->get('templating');
-            $renderedChart = $templating->render("TMSolutionChartsBundle:Templates:morrisjs.bar.template.twig", [
-                "options" => $this->options
-            ]);
-        }
+        $this->convertData();
+        $templating = $this->container->get('templating');
+        $renderedChart = $templating->render("TMSolutionChartsBundle:Templates:morrisjs.bar.template.twig", [
+            "options" => $this->options
+        ]);
+
 
         return $renderedChart;
     }

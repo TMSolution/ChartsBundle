@@ -4,10 +4,9 @@ namespace TMSolution\ChartsBundle\Service;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ChartsMorrisJsLine extends ChartsMorrisJs
+class ChartsMorrisJsLine extends Chart
 {
 
-   
     protected $defaultOptions = [
         'htmlContainerId' => 'chart',
         'labels' => [],
@@ -16,26 +15,19 @@ class ChartsMorrisJsLine extends ChartsMorrisJs
         'ykeys' => [],
         'download' => false,
         'downloadFileName' => 'chart',
-        'isMasterRequest'=>true
+        'isMasterRequest' => true
     ];
-    
-
-    protected function checkConfig()
-    {
-        return true;
-    }
 
     public function render()
     {
-        if ($this->checkConfig()) {
 
-           
-            $this->convertData();
-            $templating = $this->container->get('templating');
-            $renderedChart = $templating->render("TMSolutionChartsBundle:Templates:morrisjs.line.template.twig", [
-                "options" => $this->options
-            ]);
-        }
+
+        $this->convertData();
+        $templating = $this->container->get('templating');
+        $renderedChart = $templating->render("TMSolutionChartsBundle:Templates:morrisjs.line.template.twig", [
+            "options" => $this->options
+        ]);
+
 
         return $renderedChart;
     }

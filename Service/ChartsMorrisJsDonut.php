@@ -4,7 +4,7 @@ namespace TMSolution\ChartsBundle\Service;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ChartsMorrisJsDonut extends ChartsMorrisJs
+class ChartsMorrisJsDonut extends Chart
 {
 
     protected $defaultOptions = [
@@ -14,26 +14,19 @@ class ChartsMorrisJsDonut extends ChartsMorrisJs
         'colors' => [],
         'download' => false,
         'downloadFileName' => 'chart',
-        'isMasterRequest'=>true
+        'isMasterRequest' => true
     ];
-
-    protected function checkConfig()
-    {
-
-        return true;
-    }
 
     public function render()
     {
-        if ($this->checkConfig()) {
 
 
-            $this->convertData();
-            $templating = $this->container->get('templating');
-            $renderedChart = $templating->render("TMSolutionChartsBundle:Templates:morrisjs.donut.template.twig", [
-                "options" => $this->options
-            ]);
-        }
+        $this->convertData();
+        $templating = $this->container->get('templating');
+        $renderedChart = $templating->render("TMSolutionChartsBundle:Templates:morrisjs.donut.template.twig", [
+            "options" => $this->options
+        ]);
+
 
         return $renderedChart;
     }
