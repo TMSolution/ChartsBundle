@@ -1,9 +1,9 @@
 {% extends "Default/Base/index.html.twig"%}
 {% block content %}
 
-   
-    
-    
+
+
+
     <div class="row">
         <div class="col-md-6">
             {% if chart1 is defined %}{{ chart1|raw}}{% endif %}
@@ -20,9 +20,9 @@
             {% if chart4 is defined %} {{ chart4|raw}}{% endif %}
         </div>
     </div>
-        
-   <!-- SPARKLINE -->   
-   <div class="row">
+
+    <!-- SPARKLINE 
+    <div class="row">
         <div class="col-md-4">
             {{ sparkLine1|raw}}
         </div>
@@ -32,10 +32,10 @@
         <div class="col-md-4">
             {{ sparkPie3|raw}}
         </div>
-       
+
     </div> 
-        
-   <div class="row">
+
+    <div class="row">
         <div class="col-md-4">
             {{ sparkLine11|raw}}
         </div>
@@ -45,12 +45,33 @@
         <div class="col-md-4">
             {{ sparkPie33|raw}}
         </div>
-       
-    </div>      
-    
-    
 
-</div>
+    </div> -->   
+
+
+    <!-- Easy Pie
+    <div class="row">
+        <div class="col-md-4">
+            {{ easyPie1|raw}}
+        </div>
+        <div class="col-md-4">
+            {{ easyPie2|raw}}
+        </div>
+        <div class="col-md-4">
+
+        </div>
+
+    </div> -->
+
+    <div class="row">
+        <div class="col-md-12">   
+            {{ chartMjsArea|raw}}
+        </div>
+
+    </div>
+
+
+
 {% endblock content %}
 
 {% block js %}

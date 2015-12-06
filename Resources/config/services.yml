@@ -29,4 +29,8 @@ services:
         class: TMSolution\ChartsBundle\Service\SparklineBar
         arguments: [@service_container]
         
+    charts.easy.pie.generate:
+        class: TMSolution\ChartsBundle\Service\EasyPie
+        arguments: [@service_container]
+        
         
