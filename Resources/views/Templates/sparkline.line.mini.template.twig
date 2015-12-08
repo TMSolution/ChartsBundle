@@ -30,7 +30,11 @@
 
         }
     }    
+    {% if app.request.isXmlHttpRequest() %}
+        {{options.htmlContainerId}}Fn();
+    {% else %}
     if (collector) {
-    collector.addFunction({{options.htmlContainerId}}Fn);
+        collector.addFunction({{options.htmlContainerId}}Fn);
     }
+    {% endif %}
 </script>

@@ -40,9 +40,13 @@
         //chart{{options.htmlContainerId}}.on('click', function(i, row){console.log(i, row);});
     }
     
+    {% if app.request.isXmlHttpRequest() %}
+        {{options.htmlContainerId}}Fn();
+    {% else %}
     if (collector) {
-           collector.addFunction({{options.htmlContainerId}}Fn);
+        collector.addFunction({{options.htmlContainerId}}Fn);
     }
+    {% endif %}
    
 
 </script>
