@@ -28,7 +28,9 @@ class EasyPie extends Chart
         'barColor'=> 'rgba(255,255,255,0.7)',
         'lineWidth'=> 7,
         'lineCap'=> 'butt',
-        'listData' => []
+        'listData' => [],
+        'download' => true,
+        'downloadFileName' => 'chart',
     ];
     
     

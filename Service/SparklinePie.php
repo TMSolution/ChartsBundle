@@ -27,7 +27,9 @@ class SparklinePie extends Chart
         'backgroundColorClass' => 'bgm-lime',
         'sliceColors' => ['#fff', 'rgba(255,255,255,0.7)', 'rgba(255,255,255,0.4)', 'rgba(255,255,255,0.2)'],
         'data' => [],
-        'listData' => []
+        'listData' => [],
+        'download' => true,
+        'downloadFileName' => 'chart',
     ];
 
     public function render()

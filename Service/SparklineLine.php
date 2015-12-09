@@ -34,7 +34,9 @@ class SparklineLine extends Chart
         'highlightSpotColor' => '#fff',
         'highlightLineColor' => 'rgba(255,255,255,0.4)',
         'data' => [],
-        'listData' => []
+        'listData' => [],
+        'download' => true,
+        'downloadFileName' => 'chart',
     ];
 
     public function render()

@@ -7,6 +7,24 @@
         </div>
 
         <div class="dash-widget-title">{{options.title}}</div>
+        {% if options.download %}
+        <ul class="actions actions-alt">
+            <li class="dropdown">
+                <a data-toggle="dropdown" href="">
+                    <i class="zmdi zmdi-more-vert"></i>
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-right">
+                    {% if options.download %}
+                    <li>
+                        <a target="_blank" style="cursor:pointer" class="not-lazy-loaded"  id="{{options.htmlContainerId}}-download">{{'Download'|trans}}</a>
+                    </li>
+                    {% endif %}
+                    
+                </ul>
+            </li>
+        </ul>
+        {% endif %}
 
     </div>
 
@@ -34,6 +52,12 @@
                         lineCap: '{{options.lineCap}}',
                 size: 95
             });
+            
+            {% if options.download %}
+                document.getElementById('{{options.htmlContainerId}}-download').addEventListener('click', function(e) {
+                    downloadCanvasImage(this, '{{options.htmlContainerId}}', {%if options.downloadFileName %}'{{options.downloadFileName}}.png'{% else %}'export.png'{% endif %});
+                }, false);
+            {% endif %}
         }
     }
     
