@@ -10,7 +10,8 @@ class DefaultController extends Controller
     public function chartAction()
     {
 
-        /*    $chart = $this->get('charts.morrisjs.bar.generate');
+        /*
+          $chart = $this->get('charts.morrisjs.bar.generate');
 
           $data0 = new \stdClass();
           $data0->label = 'ALA';
@@ -266,15 +267,15 @@ class DefaultController extends Controller
         for ($i = 1; $i < 15; $i++) {
             $data = new \stdClass();
             $data->label = "$i";
-            $data->value1 = rand(1,10);
-            $data->value2 = rand(1,10);
+            $data->value1 = rand(1, 10);
+            $data->value2 = rand(1, 10);
             $dataArr[] = $data;
         }
 
         ////////morrisjs area
 
 
-       
+
 
 
         $chartMjs = $this->get('charts.morrisjs.area.generate');
@@ -284,7 +285,7 @@ class DefaultController extends Controller
             'xkey' => 'label',
             'ykeys' => ['value1', 'value2'],
             'labels' => ['Zbiór Zero', 'Zbiór Pierwszy'],
-            'lineColors' => ['#E4E4E4','#F1DD30'],
+            'lineColors' => ['#E4E4E4', '#F1DD30'],
             'download' => 1,
             'downloadFileName' => 'AlaMaKota3'
         ];

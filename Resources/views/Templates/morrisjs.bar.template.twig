@@ -4,25 +4,27 @@
 
     var {{options.htmlContainerId}}Fn = function(){
     var chart{{options.htmlContainerId}} = Morris.Bar({
-    element: '{{options.htmlContainerId}}',
+            element: '{{options.htmlContainerId}}',
             data:{{options.jsonData|raw}},
             xkey: '{{options.xkey}}',
             ykeys: [{% for ykey in options.ykeys %}'{{ykey}}'{% if not loop.last %},{% endif %}{% endfor %} ],
-            labels: [{% for label in options.labels %}'{{label}}'{% if not loop.last %},{% endif %}{% endfor %} ],
+            labels: [{% for label in options.labels %}'{{label|trans}}'{% if not loop.last %},{% endif %}{% endfor %} ],
             resize: true,
             grid:true
-    {% if options.hideHover %}, hideHover:'{{options.hideHover}}'{% endif %}
+    {% if options.hideHover %}, hideHover:{{options.hideHover}}{% endif %}
     {% if options.hoverCallback %}, hoverCallback:{{options.hoverCallback}}{% endif %}
     {% if options.stacked %}, stacked:{{options.stacked}}{% endif %}
-{% if options.barColors is not empty %}, barColors: [{% for barColor in options.barColors %}'{{barColor}}'{% if not loop.last %},{% endif %}{% endfor %} ]{% endif %}
+    {% if options.barColors is not empty %}, barColors: [{% for barColor in options.barColors %}'{{barColor}}'{% if not loop.last %},{% endif %}{% endfor %} ]{% endif %}
 
 
 
-                    });{% if options.download %}
-                            $('#{{options.htmlContainerId}}').append('<div><a style="cursor:pointer" class="not-lazy-loaded pull-right" target="_blank" id="{{options.htmlContainerId}}-download">{{'download'|trans}}</a></div>');
-                            document.getElementById('{{options.htmlContainerId}}-download').addEventListener('click', function() {
-                    downloadImage(this, '{{options.htmlContainerId}}', {%if options.downloadFileName %}'{{options.downloadFileName}}.png'{% else %}'export.png'{% endif %});
-                    }, false);
+        });{% if options.download %}
+            {%if not options.downloadButtonId %}
+                $('#{{options.htmlContainerId}}').append('<div><a style="cursor:pointer" class="not-lazy-loaded pull-right" target="_blank" id="{{options.htmlContainerId}}-download">{{'system.chart.download'|trans}}</a></div>');
+            {%endif%}       
+                document.getElementById('{%if options.downloadButtonId %}{{options.downloadButtonId}}{%else%}{{options.htmlContainerId}}-download{%endif%}').addEventListener('click', function() {
+        downloadImage(this, '{{options.htmlContainerId}}', {%if options.downloadFileName %}'{{options.downloadFileName|trans}}.png'{% else %}'export.png'{% endif %});
+        }, false);
 {% endif %}
 
 
@@ -32,28 +34,28 @@
 //event example
 //chart{{options.htmlContainerId}}.on('click', function(i, row){console.log(i, row);});
 
-                            /*
-                             update{{options.htmlContainerId}}=function(){
-                             
-                             var v1=Math.floor((Math.random() * 10) + 1);
-                             var v2=Math.floor((Math.random() * 10) + 1);
-                             var v3=Math.floor((Math.random() * 10) + 1);
-                             var v4=Math.floor((Math.random() * 10) + 1);
-                             var v5=Math.floor((Math.random() * 10) + 1);
-                             
-                             chart{{options.htmlContainerId}}.setData([{"label":"ALA","value1":v1,"value2":v2},{"label":"MA","value1":v3,"value2":v4},{"label":"KOTA","value1":v5,"value2":v2},{"label":"I PSA","value1":v4,"value2":v3}])
-                             }
-                             
-                             setInterval(update{{options.htmlContainerId}},3000)
-                             */
+                /*
+                 update{{options.htmlContainerId}}=function(){
+                 
+                 var v1=Math.floor((Math.random() * 10) + 1);
+                 var v2=Math.floor((Math.random() * 10) + 1);
+                 var v3=Math.floor((Math.random() * 10) + 1);
+                 var v4=Math.floor((Math.random() * 10) + 1);
+                 var v5=Math.floor((Math.random() * 10) + 1);
+                 
+                 chart{{options.htmlContainerId}}.setData([{"label":"ALA","value1":v1,"value2":v2},{"label":"MA","value1":v3,"value2":v4},{"label":"KOTA","value1":v5,"value2":v2},{"label":"I PSA","value1":v4,"value2":v3}])
+                 }
+                 
+                 setInterval(update{{options.htmlContainerId}},3000)
+                 */
 
 
-                    }
+        }
 
     {% if app.request.isXmlHttpRequest() %}
-    {{options.htmlContainerId}}Fn();    {% else %}
-                    if (collector) {
-            collector.addFunction({{options.htmlContainerId}}Fn);
-            }
-    {% endif %}
-</script>
+        {{options.htmlContainerId}}Fn();{% else %}
+                if (collector) {
+        collector.addFunction({{options.htmlContainerId}}Fn);
+        }
+        {% endif %}
+    </script>

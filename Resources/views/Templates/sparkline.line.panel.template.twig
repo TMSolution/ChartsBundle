@@ -30,8 +30,8 @@
 
             {% for row in options.listData %}
                 <div>
-                    <small>{{row.title}}</small>
-                    <h3 class="m-0 f-400">{{row.value}}</h3>
+                    <small>{{row.title|trans}}</small>
+                    <h3 class="m-0 f-400">{{row.value|trans}}</h3>
                 </div>
             {% endfor %}
     

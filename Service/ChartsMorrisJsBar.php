@@ -18,6 +18,7 @@ class ChartsMorrisJsBar extends Chart
         'hoverCallback' => null,
         'barColors' => [],
         'download' => 0,
+        'downloadButtonId' => null,
         'downloadFileName' => 'chart',
         'isMasterRequest' => true
     ];
