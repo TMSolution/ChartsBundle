@@ -45,12 +45,13 @@ class Chart
 
     protected function translate(&$parameters)
     {
-      
+      //
+      /dump($parameters);
         foreach ($parameters as $element) {
-
-           if ($element->label) {
-                $element->label = $this->container->get('translator')->trans($element->label);
-            }
+            
+//           if ($element->label) {
+//                $element->label = $this->container->get('translator')->trans($element->label);
+//            }
         }
      
     }
