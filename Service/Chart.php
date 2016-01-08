@@ -46,7 +46,7 @@ class Chart
     protected function translate(&$parameters)
     {
       //
-      /dump($parameters);
+      //dump($parameters);
         foreach ($parameters as $element) {
             
 //           if ($element->label) {
