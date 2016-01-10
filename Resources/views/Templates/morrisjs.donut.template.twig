@@ -12,7 +12,7 @@
     });{% if options.download %}
             $('#{{options.htmlContainerId}}').append('<div><a style="cursor:pointer" class="not-lazy-loaded pull-right" target="_blank" id="{{options.htmlContainerId}}-download">{{'download'|trans}}</a></div>');
             document.getElementById('{{options.htmlContainerId}}-download').addEventListener('click', function() {
-    downloadImage(this, '{{options.htmlContainerId}}', {%if options.downloadFileName %}'{{options.downloadFileName}}.png'{% else %}'export.png'{% endif %});
+    downloadImage(this, '{{options.htmlContainerId}}', {%if options.downloadFileName %}'{{options.downloadFileName|trans}}.png'{% else %}'export.png'{% endif %});
             }, false);
     {% endif %}
 

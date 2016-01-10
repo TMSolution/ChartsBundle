@@ -35,7 +35,7 @@ class Chart
 
         if (array_key_exists($param, $this->options)) {
 
-            $parameters=$this->options[$param];
+            $parameters = $this->options[$param];
             $this->translate($parameters);
             $this->options[$jsonParam] = json_encode($parameters);
         } else {
@@ -45,15 +45,14 @@ class Chart
 
     protected function translate(&$parameters)
     {
-      //
-      //dump($parameters);
+        //
+        //dump($parameters);
         foreach ($parameters as $element) {
-            
-//           if ($element->label) {
-//                $element->label = $this->container->get('translator')->trans($element->label);
-//            }
+
+            if (is_object($element) && property_exists($element, 'label')) {
+                $element->label = $this->container->get('translator')->trans($element->label);
+            }
         }
-     
     }
 
 }

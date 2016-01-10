@@ -32,7 +32,7 @@
         $('#{{options.htmlContainerId}}').append('<div><a style="cursor:pointer" class="not-lazy-loaded pull-right" target="_blank" id="{{options.htmlContainerId}}-download">{{'download'|trans}}</a></div>');
         
         document.getElementById('{{options.htmlContainerId}}-download').addEventListener('click', function() {
-            downloadImage(this, '{{options.htmlContainerId}}', {%if options.downloadFileName %}'{{options.downloadFileName}}.jpg'{% else %}'export.jpg'{% endif %});
+            downloadImage(this, '{{options.htmlContainerId}}', {%if options.downloadFileName %}'{{options.downloadFileName|trans}}.jpg'{% else %}'export.jpg'{% endif %});
         }, false);
         {% endif %}
         
