@@ -11,7 +11,7 @@
             labels: [{% for label in options.labels %}'{{label|trans}}'{% if not loop.last %},{% endif %}{% endfor %} ],
             resize: true,
             grid:true
-    {% if options.hideHover %}, hideHover:{{options.hideHover}}{% endif %}
+    {% if options.hideHover %}, hideHover:'{{options.hideHover}}'{% endif %}
     {% if options.hoverCallback %}, hoverCallback:{{options.hoverCallback}}{% endif %}
     {% if options.stacked %}, stacked:{{options.stacked}}{% endif %}
     {% if options.barColors is not empty %}, barColors: [{% for barColor in options.barColors %}'{{barColor}}'{% if not loop.last %},{% endif %}{% endfor %} ]{% endif %}

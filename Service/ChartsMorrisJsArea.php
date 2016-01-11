@@ -15,11 +15,14 @@ class ChartsMorrisJsArea extends Chart
         'xkey' => null,
         'ykeys' => [],
         'download' => false,
-        'xLabelFormatFn' => "function(x){return ''; /*x.label;*/}",
+        'xLabelFormatFn' => "function(x){return x.label}",
         'yLabelFormatFn' => "function(y){return y;}",
         'fillOpacity' => '1.0',
         'lineColors' => [],
         'downloadFileName' => 'chart',
+        'lineWidth' => 0,
+        'pointSize' => 0,
+        'grid' => 'false',
         'isMasterRequest' => true
     ];
 

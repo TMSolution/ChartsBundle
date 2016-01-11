@@ -19,9 +19,9 @@
                 parseTime: false,
                 behaveLikeLine:true,
                 goalStrokeWidth: '0px',
-                lineWidth: 0,
-                pointSize: 0,
-                grid: false,
+                {% if options.lineWidth is defined %}lineWidth:{{options.lineWidth|raw}},{% endif %}
+                {% if options.pointSize is defined %}pointSize:{{options.pointSize|raw}},{% endif %}
+                {% if options.grid is defined %}grid:{{options.grid|raw}},{% endif %}
                 axis: false,
                 hideHover:'auto'
                 {% if options.fillOpacity %}, fillOpacity:{{options.fillOpacity}}{% endif %}
