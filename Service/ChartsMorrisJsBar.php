@@ -20,7 +20,8 @@ class ChartsMorrisJsBar extends Chart
         'download' => 0,
         'downloadButtonId' => null,
         'downloadFileName' => 'chart',
-        'isMasterRequest' => true
+        'isMasterRequest' => true,
+        'legend' => false
     ];
 
     /*

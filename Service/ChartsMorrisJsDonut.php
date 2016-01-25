@@ -14,7 +14,10 @@ class ChartsMorrisJsDonut extends Chart
         'colors' => [],
         'download' => false,
         'downloadFileName' => 'chart',
-        'isMasterRequest' => true
+        'downloadButtonId' => null,
+        'hoverCallback' => null,
+        'isMasterRequest' => true,
+        'legend' => false
     ];
 
     public function render()

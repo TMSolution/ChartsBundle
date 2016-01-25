@@ -15,7 +15,11 @@ class ChartsMorrisJsLine extends Chart
         'ykeys' => [],
         'download' => false,
         'downloadFileName' => 'chart',
-        'isMasterRequest' => true
+        'hoverCallback' => null,
+        'downloadButtonId' => null,
+        'isMasterRequest' => true,
+        'lineColors' => [],
+        'legend' => false
     ];
 
     public function render()
