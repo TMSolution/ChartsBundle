@@ -2,35 +2,35 @@ services:
        
     charts.morrisjs.bar.generate:
         class: TMSolution\ChartsBundle\Service\ChartsMorrisJsBar
-        arguments: [@service_container]
+        arguments: ["@service_container"]
         
     charts.morrisjs.line.generate:
         class: TMSolution\ChartsBundle\Service\ChartsMorrisJsLine
-        arguments: [@service_container]
+        arguments: ["@service_container"]
         
     charts.morrisjs.area.generate:
         class: TMSolution\ChartsBundle\Service\ChartsMorrisJsArea
-        arguments: [@service_container]
+        arguments: ["@service_container"]
         
     charts.morrisjs.donut.generate:
         class: TMSolution\ChartsBundle\Service\ChartsMorrisJsDonut
-        arguments: [@service_container]
+        arguments: ["@service_container"]
         
         
     charts.sparkline.line.generate:
         class: TMSolution\ChartsBundle\Service\SparklineLine
-        arguments: [@service_container]
+        arguments: ["@service_container"]
         
     charts.sparkline.pie.generate:
         class: TMSolution\ChartsBundle\Service\SparklinePie
-        arguments: [@service_container]
+        arguments: ["@service_container"]
         
     charts.sparkline.bar.generate:
         class: TMSolution\ChartsBundle\Service\SparklineBar
-        arguments: [@service_container]
+        arguments: ["@service_container"]
         
     charts.easy.pie.generate:
         class: TMSolution\ChartsBundle\Service\EasyPie
-        arguments: [@service_container]
+        arguments: ["@service_container"]
         
         
