@@ -10,6 +10,8 @@
         ykeys: [{% for ykey in options.ykeys %}'{{ykey}}'{% if not loop.last %},{% endif %}{% endfor %} ],
         labels: [{% for label in options.labels %}'{{label}}'{% if not loop.last %},{% endif %}{% endfor %} ],
         resize: true,
+        {% if options.xLabelFormatFn is defined %}xLabelFormat:{{options.xLabelFormatFn|raw}},{% endif %}
+        {% if options.yLabelFormatFn is defined %}yLabelFormat:{{options.yLabelFormatFn|raw}},{% endif %}
         hideHover:'auto'
         });{% if options.download %}
         $('#{{options.htmlContainerId}}').append('<div><a class="not-lazy-loaded pull-right" style="cursor:pointer" target="_blank" id="{{options.htmlContainerId}}-download">{{'download'|trans}}</a></div>');
@@ -20,11 +22,16 @@
 
     }
 
-   {% if app.request.isXmlHttpRequest() %}
-        {{options.htmlContainerId}}Fn();
+
+   {% if options.data is not empty %}
+    {% if app.request.isXmlHttpRequest() %}
+
+        setTimeout({{options.htmlContainerId}}Fn, 1000);
+
     {% else %}
     if (collector) {
         collector.addFunction({{options.htmlContainerId}}Fn);
     }
+    {% endif %}
     {% endif %}
 </script>

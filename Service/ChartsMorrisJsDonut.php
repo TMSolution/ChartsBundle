@@ -12,6 +12,7 @@ class ChartsMorrisJsDonut extends Chart
         'data' => [],
         'formatter' => null,
         'colors' => [],
+        'labels' => [],
         'download' => false,
         'downloadFileName' => 'chart',
         'downloadButtonId' => null,

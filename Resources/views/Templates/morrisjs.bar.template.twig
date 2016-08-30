@@ -28,7 +28,7 @@
         }, false);
 {% endif %}
 
-{% if options.legend  and options.labels %}
+{% if options.legend  and options.labels is not empty and options.barColors is not empty %}
     {% set legend ='<div class="legend-container" style="position:relative;">'%}
     {% for label in options.labels %} 
         {% set legend=legend~'<div style="background-color: '~options.barColors[loop.index0]~'" class="di-block m-r-10 legend-color"></div><div class="di-block m-r-20 legend-title">'~label|trans~'</div>'%}
@@ -61,11 +61,16 @@
 
 
         }
-
+    
+    {% if options.data is not empty %}
     {% if app.request.isXmlHttpRequest() %}
-        {{options.htmlContainerId}}Fn();{% else %}
-                if (collector) {
+
+        setTimeout({{options.htmlContainerId}}Fn, 1000);
+
+    {% else %}
+    if (collector) {
         collector.addFunction({{options.htmlContainerId}}Fn);
-        }
-        {% endif %}
+    }
+    {% endif %}
+    {% endif %}
     </script>

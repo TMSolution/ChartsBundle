@@ -13,6 +13,8 @@ class ChartsMorrisJsLine extends Chart
         'data' => [],
         'xkey' => null,
         'ykeys' => [],
+        'xLabelFormatFn' => "function(x){return x.label}",
+        'yLabelFormatFn' => "function(y){return y;}",
         'download' => false,
         'downloadFileName' => 'chart',
         'hoverCallback' => null,

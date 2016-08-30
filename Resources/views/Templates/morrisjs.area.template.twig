@@ -51,14 +51,16 @@
         //chart{{options.htmlContainerId}}.on('click', function(i, row){console.log(i, row);});
     }
     
+    {% if options.data is not empty %}
     {% if app.request.isXmlHttpRequest() %}
-    
+
         setTimeout({{options.htmlContainerId}}Fn, 1000);
-        
+
     {% else %}
     if (collector) {
         collector.addFunction({{options.htmlContainerId}}Fn);
     }
+    {% endif %}
     {% endif %}
    
 

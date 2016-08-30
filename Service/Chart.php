@@ -37,7 +37,7 @@ class Chart
 
             $parameters = $this->options[$param];
             $this->translate($parameters);
-            $this->options[$jsonParam] = json_encode($parameters);
+            $this->options[$jsonParam] = str_replace('null','""',json_encode($parameters));
         } else {
             $this->options[$jsonParam] = '[]';
         }
@@ -45,8 +45,6 @@ class Chart
 
     protected function translate(&$parameters)
     {
-        //
-        //dump($parameters);
         foreach ($parameters as $element) {
 
             if (is_object($element) && property_exists($element, 'label')) {

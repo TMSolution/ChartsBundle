@@ -29,6 +29,8 @@ class ChartsMorrisJsArea extends Chart
         'isMasterRequest' => true,
         'legend' => false
     ];
+    
+    
 
     public function render()
     {
