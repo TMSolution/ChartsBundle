@@ -19,6 +19,24 @@
                 downloadImage(this, '{{options.htmlContainerId}}', {%if options.downloadFileName %}'{{options.downloadFileName|trans}}.png'{% else %}'export.png'{% endif %});
             }, false);
     {% endif %}
+    
+    {% if options.download %}
+            {%if not options.downloadButtonId %}
+                $('#{{options.htmlContainerId}}').append('<div><a style="cursor:pointer" class="not-lazy-loaded pull-right" target="_blank" id="{{options.htmlContainerId}}-download">{{'system.chart.download'|trans}}</a></div>');
+            {%endif%}       
+                document.getElementById('{%if options.downloadButtonId %}{{options.downloadButtonId}}{%else%}{{options.htmlContainerId}}-download{%endif%}').addEventListener('click', function() {
+        downloadImage(this, '{{options.htmlContainerId}}', {%if options.downloadFileName %}'{{options.downloadFileName|trans}}.png'{% else %}'export.png'{% endif %});
+        }, false);
+    {% endif %}
+
+    {% if options.legend  and options.labels %}
+        {% set legend ='<div class="legend-container" style="position:relative;">'%}
+        {% for label in options.labels %} 
+            {% set legend=legend~'<div style="background-color: '~options.lineColors[loop.index0]~'" class="di-block m-r-10 legend-color"></div><div class="di-block m-r-20 legend-title">'~label|trans~'</div>'%}
+        {% endfor %}
+        {% set legend=legend~'</div>'%}    
+        $('#{{options.htmlContainerId}}').append('{{legend|raw}}');
+    {% endif %}
 
     }
 

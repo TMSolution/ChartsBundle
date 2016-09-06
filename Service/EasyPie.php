@@ -30,7 +30,7 @@ class EasyPie extends Chart
         'lineCap'=> 'butt',
         'listData' => [],
         'download' => true,
-        'downloadFileName' => 'chart',
+        'downloadFileName' => 'chart'
     ];
     
     
