@@ -29,7 +29,7 @@
                 {% if options.lineColors is not empty %}, lineColors: [{% for lineColor in options.lineColors %}'{{lineColor}}'{% if not loop.last %},{% endif %}{% endfor %} ]{% endif %}
         });
         
- {% if options.download %}
+{% if options.download %}
             {%if not options.downloadButtonId %}
                 $('#{{options.htmlContainerId}}').append('<div><a style="cursor:pointer" class="not-lazy-loaded pull-right" target="_blank" id="{{options.htmlContainerId}}-download">{{'system.chart.download'|trans}}</a></div>');
             {%endif%}       

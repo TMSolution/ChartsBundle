@@ -17,8 +17,8 @@ class ChartsMorrisJsLine extends Chart
         'yLabelFormatFn' => "function(y){return y;}",
         'download' => false,
         'downloadFileName' => 'chart',
-        'hoverCallback' => null,
         'downloadButtonId' => null,
+        'hoverCallback' => null,
         'isMasterRequest' => true,
         'lineColors' => [],
         'legend' => false
