@@ -1,4 +1,11 @@
 services:
+    
+    charts.util.chart_factory:
+        class: TMSolution\ChartsBundle\Util\ChartFactory
+    
+    charts.controller.default_controller:
+        class: TMSolution\ChartsBundle\Controller\DefaultController
+        arguments: ['@service_container','@flexix_prototype_controller.configuration_factory','@request_stack','@flexix_prototype_controller.data_adapter']
        
     charts.morrisjs.bar:
         class: TMSolution\ChartsBundle\Service\ChartsMorrisJsBar
@@ -32,5 +39,7 @@ services:
     charts.easy.pie:
         class: TMSolution\ChartsBundle\Service\EasyPie
         arguments: ["@service_container"]
+        
+        
         
         

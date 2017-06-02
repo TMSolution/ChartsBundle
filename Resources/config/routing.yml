@@ -1,3 +1,14 @@
 tm_solution_charts_homepage:
     path:     /charts
     defaults: { _controller: TMSolutionChartsBundle:Default:chart }
+
+
+       
+tm_solution_charts.controller.default.chart_action:
+    path: "{module}/{alias}/chart/{chart_type}/{id}"
+    defaults: { _controller: "charts.controller.default_controller:chartAction","action": "chart", format: ~,id: null, module: null }
+    methods:  [GET, POST]
+    options:
+        expose: true
+        
+        
